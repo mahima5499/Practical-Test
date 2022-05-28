@@ -1,0 +1,94 @@
+/* eslint-disable no-undef */
+This program will allow the user to sort 10 GB array integers
+with 1 GB RAM and 240 GB Hard Drive.
+
+
+begin
+    main function
+       unsortedArr = Input array values
+       sortedArr = splitArrayIntoChunks(unsortedArr)
+       return sortedArr
+end
+
+const splitArrayIntoChunks = (unsortedArr) => {
+begin
+    // Split the unsortedArr(array) into 10 so it will be 10 GB / 1 GB = 10 chunks. 
+    chunks = [];
+    i = 0;
+    n = unsortedArr.length;
+    WHILE (i < unsortedArr.length) {
+        chunks.push(Split the unsortedArr into 10);
+    }
+    FOR counter=0 to chunks.length counter DO
+     sortedChunks = quickSort(chunks[counter]);
+    ENDFOR
+    sortedArr = kmerge(sortedChunks);
+    return sortedArr;
+end
+}
+
+const kmerge = (sortedChunks) => {
+begin
+    // Load 10 items from each sortedChunks into main memory. 
+     WHILE (i < sortedChunks.length) {
+        prioQueue.push(Pluck 10 items from sortedChunks);
+    }
+    prioKey = nextPriorityNumberIn(prioQueue)
+    // Iterate through priority key on the priority queue
+    IF prioQueue[i] < prioKey
+        sortedPrioQueue.push(prioQueue[i])
+    ELSE
+        sortedPrioQueue.push(prioKey)
+    prioKey = nextPriorityNumberIn(sortedPrioQueue)
+
+    WHILE(sortedPrioQueue!= empty)
+        smallestData = (iterateQueue(prioQueue, prioKey))
+        finalArr.push(smallestData)
+        if (smallestData > -1)
+            prioQueue.splice(smallestData, 1)
+        IF(prioQueue!=empty)
+            finalArr.push(iterateQueue(prioQueue, prioKey))
+            prioKey = nextPriorityNumberIn(sortedPrioQueue)
+        kmerge(sortedChunks);
+    return finalArr
+end
+}
+
+function iterateQueue(prioQueue, prioKey){
+begin
+    smallestData=prioKey
+    FOR counter=0 to prioQueue.length counter DO
+     IF(prioKey > prioQueue[counter])
+        return smallestData=prioQueue[counter]
+    ENDFOR
+    return smallestData
+end
+}
+
+function nextPriorityNumberIn(arr){
+begin
+    priorityKey = arr[0];
+    return priorityKey
+end
+}
+
+function quickSort(ArrValue) {
+begin
+    end= ArrValue.length - 1
+    beg = ArrValue[0]
+    IF (beg < end)
+    pivotIndex = partition(ArrValue, beg, end)
+    quickSort(ArrValue, beg, pivotIndex)
+    quickSort(ArrValue, pivotIndex + 1, end)
+
+    partition(ArrValue, beg, end)
+    set end as pivotIndex
+    pIndex = beg - 1
+    FOR i = beg to end-1
+    IF (ArrValue[i] < pivot)
+        swap ArrValue[i] and ArrValue[pIndex]
+        pIndex++
+    swap pivot and ArrValue[pIndex+1]
+    return pIndex + 1
+end
+}
